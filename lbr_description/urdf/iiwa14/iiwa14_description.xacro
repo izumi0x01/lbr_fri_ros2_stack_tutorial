@@ -293,5 +293,359 @@
 
         <link name="${robot_name}_link_ee">
         </link>
+
+    <link name="tool_mount">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 ${-pi/2} ${pi/2}"/>
+            <geometry>
+                <mesh filename="package://lbr_description/meshes/envs/visual/iiwa_tool_mount.stl"/>
+            </geometry>
+            <material name="">
+                <color rgba="0.8 0.8 0.8 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0.005" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.006" radius="0.038"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="eef_base_joint" type="fixed">
+        <origin xyz="0 0 0.0095" rpy="0 0 0"/>
+        <parent link="tool_mount"/>
+        <child link="eef_base"/>
+    </joint>
+    <link name="eef_base">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://lbr_description/meshes/envs/visual/hande_base.stl"/>
+            </geometry>
+            <material name="">
+                <color rgba="0.8 0.8 0.8 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0.0095" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.020" radius="0.038"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="eef_joint" type="fixed">
+        <origin xyz="0 0 0.0015" rpy="0 0 3.14"/>
+        <parent link="eef_base"/>
+        <child link="eef"/>
+    </joint>
+    <link name="eef">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://lbr_description/meshes/envs/visual/hande.stl"/>
+            </geometry>
+            <material name="">
+                <color rgba="0.8 0.8 0.8 1"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://lbr_description/meshes/envs/collision/hande.stl"/>
+            </geometry>
+        </collision>
+    </link>  
+
+    <joint name="tool_joint" type="fixed">
+        <parent link="${robot_name}_link_ee"/>
+        <child link="tool_mount"/>
+        <origin xyz="0 0 0.001" rpy="0 0 ${PI/2}"/>
+    </joint>
+
+    <joint name="tool_tip_joint" type="fixed">
+        <parent link="${robot_name}_link_ee"/>
+        <child link="tool_link_ee"/>
+        <origin xyz="0 0 0.25" rpy="${PI/2} -${PI/2} 0"/>
+    </joint>
+
+    <!--  The TCP frame is here defined -->
+    <link name="tool_link_ee"/>
+
+    <joint name="base_joint" type="fixed">
+        <parent link="$(arg robot_name)_floating_link"/>
+        <child link="base"/>
+    </joint>
+
+    <link name="base">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://lbr_description/meshes/envs/visual/base.dae"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0.06" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.4 0.4 0.10"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 1" rpy="0 0 0"/>
+            <mass value="1"/>
+            <inertia
+                ixx="1.0" ixy="0.0" ixz="0.0"
+                iyy="1.0" iyz="0.0"
+                izz="1.0"/>
+        </inertial>
+    </link>
+
+    <joint name="mount_joint" type="fixed">
+        <parent link="base"/>
+        <child link="mount"/>
+    </joint>
+
+    <link name="mount">
+        <visual>
+            <origin xyz="0 0 0.145" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://lbr_description/meshes/envs/visual/mount.dae"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0.565" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.25 0.25 0.82"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 1" rpy="0 0 0"/>
+            <mass value="1"/>
+            <inertia
+                ixx="1.0" ixy="0.0" ixz="0.0"
+                iyy="1.0" iyz="0.0"
+                izz="1.0"/>
+        </inertial>
+    </link>
+
+    <joint name="conveyor_joint" type="fixed">
+        <parent link="$(arg robot_name)_floating_link"/>
+        <child link = "conveyor"/>
+        <origin xyz="0.6 1.7 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="conveyor">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://lbr_description/meshes/envs/visual/conveyor.dae"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0.455" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.445 3.0 0.91"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 1" rpy="0 0 0"/>
+            <mass value="1"/>
+            <inertia
+                ixx="1.0" ixy="0.0" ixz="0.0"
+                iyy="1.0" iyz="0.0"
+                izz="1.0"/>
+        </inertial>
+    </link>
+
+    <joint name="tv_joint" type="fixed">
+        <parent link="$(arg robot_name)_floating_link"/>
+        <child link = "tv"/>
+        <origin xyz="0.6 -0.9 1.9" rpy="-0.1745 0 0.78"/>
+    </joint>
+
+    <link name="tv">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="1.1 0.1 0.6"/>
+            </geometry>
+            <material name="gray">
+                <color rgba="0.7 0.7 0.7 0.2"/>
+            </material>
+        </visual>  
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="1.1 0.1 0.6"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 1" rpy="0 0 0"/>
+            <mass value="1"/>
+            <inertia
+                ixx="1.0" ixy="0.0" ixz="0.0"
+                iyy="1.0" iyz="0.0"
+                izz="1.0"/>
+        </inertial>
+    </link>
+
+    <joint name="frame_joint" type="fixed">
+        <parent link="$(arg robot_name)_floating_link"/>
+        <child link = "frame"/>
+        <origin xyz="-0.2 0.8 0.9" rpy="0 0 0"/>
+    </joint>
+
+    <link name="frame">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://lbr_description/meshes/envs/visual/workspace.stl"/>
+            </geometry>
+            <material name="gray">
+                <color rgba="0.7 0.7 0.7 0.2"/>
+            </material>
+        </visual>  
+        <collision>
+            <origin xyz="0 0 -0.5" rpy="0 0 0"/>
+            <geometry>
+                <box size="1.0 1.0 0.8"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 1" rpy="0 0 0"/>
+            <mass value="1"/>
+            <inertia
+                ixx="1.0" ixy="0.0" ixz="0.0"
+                iyy="1.0" iyz="0.0"
+                izz="1.0"/>
+        </inertial>
+    </link>
+
+    <joint name="iiwa2_joint" type="fixed">
+        <parent link="frame"/>
+        <child link = "iiwa2"/>
+        <origin xyz="0.30 0.34 0" rpy="1.57 0 0"/>
+    </joint>
+
+    <link name="iiwa2">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://lbr_description/meshes/envs/visual/iiwa_hande.stl"/>
+            </geometry>
+            <material name="gray">
+                <color rgba="0.7 0.7 0.7 0.2"/>
+            </material>
+        </visual>  
+        <collision>
+            <origin xyz="0 0.8 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.25 1.5 0.25"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 1" rpy="0 0 0"/>
+            <mass value="1"/>
+            <inertia
+                ixx="1.0" ixy="0.0" ixz="0.0"
+                iyy="1.0" iyz="0.0"
+                izz="1.0"/>
+        </inertial>
+    </link>
+
+    <joint name="softjig_joint" type="fixed">
+        <parent link="frame"/>
+        <child link = "softjig"/>
+        <origin xyz="0.45 0 0" rpy="1.57 0 3.14"/>
+    </joint>
+
+    <link name="softjig">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://lbr_description/meshes/envs/visual/softjig.stl"/>
+            </geometry>
+            <material name="gray_dark">
+                <color rgba="0.7 0.7 0.7 1.0"/>
+            </material>
+        </visual>  
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://lbr_description/meshes/envs/collision/softjig.stl"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 1" rpy="0 0 0"/>
+            <mass value="1"/>
+            <inertia
+                ixx="1.0" ixy="0.0" ixz="0.0"
+                iyy="1.0" iyz="0.0"
+                izz="1.0"/>
+        </inertial>
+    </link>
+
+    <joint name="round_table_joint" type="fixed">
+        <parent link="$(arg robot_name)_floating_link"/>
+        <child link = "round_table"/>
+        <origin xyz="0 -0.7 0.485" rpy="0 0 0"/>
+    </joint>
+
+    <link name="round_table">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.05" radius="0.43"/>
+            </geometry>
+            <material name="green">
+                <color rgba="0.0 0.8 0.0 0.5"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="0.05" radius="0.43"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 1" rpy="0 0 0"/>
+            <mass value="1"/>
+            <inertia
+                ixx="1.0" ixy="0.0" ixz="0.0"
+                iyy="1.0" iyz="0.0"
+                izz="1.0"/>
+        </inertial>
+    </link>
+
+    <joint name="heater_unit_joint" type="fixed">
+        <parent link="conveyor"/>
+        <child link = "heater_unit"/>
+        <origin xyz="0.242 -1.4 0.8" rpy="0 0 1.57"/>
+    </joint>
+
+    <link name="heater_unit">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://lbr_description/meshes/envs/visual/heater_unit.stl"/>
+            </geometry>
+            <material name="gray">
+                <color rgba="0.7 0.7 0.7 0.2"/>
+            </material>
+        </visual>  
+        <collision>
+            <origin xyz="0 0.25 0.32" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.22 0.445 0.4"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 1" rpy="0 0 0"/>
+            <mass value="1"/>
+            <inertia
+                ixx="1.0" ixy="0.0" ixz="0.0"
+                iyy="1.0" iyz="0.0"
+                izz="1.0"/>
+        </inertial>
+    </link>
+
     </xacro:macro>
 </robot>
