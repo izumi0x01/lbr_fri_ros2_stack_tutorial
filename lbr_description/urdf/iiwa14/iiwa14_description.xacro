@@ -428,13 +428,14 @@
     <joint name="mount_joint" type="fixed">
         <parent link="base"/>
         <child link="mount"/>
+        <origin xyz="0 0 0" rpy="0 0 -1.57"/>
     </joint>
 
     <link name="mount">
         <visual>
             <origin xyz="0 0 0.145" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://lbr_description/meshes/envs/visual/mount.dae"/>
+                <mesh filename="package://lbr_description/meshes/envs/visual/mount.stl"/>
             </geometry>
             <material name="gray">
                 <color rgba="0.7 0.7 0.7 0.2"/>
@@ -555,7 +556,7 @@
     <joint name="iiwa2_joint" type="fixed">
         <parent link="$(arg robot_name)_floating_link"/>
         <child link = "iiwa2"/>
-        <origin xyz="0 0 0.94" rpy="1.57 0 0"/>
+        <origin xyz="-0.005 -0.0045 0.94" rpy="1.57 0 0"/>
     </joint>
 
     <link name="iiwa2">
