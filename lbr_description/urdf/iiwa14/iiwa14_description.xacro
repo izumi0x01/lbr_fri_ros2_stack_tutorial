@@ -39,6 +39,9 @@
                 <geometry>
                     <mesh filename="package://lbr_description/meshes/iiwa14/visual/link_0.dae" />
                 </geometry>
+                <material name="gray">
+                    <color rgba="0.7 0.7 0.7 0.2"/>
+                </material>
             </visual>
             <collision>
                 <origin rpy="0 0 0" xyz="0 0 0" />
@@ -73,6 +76,9 @@
                 <geometry>
                     <mesh filename="package://lbr_description/meshes/iiwa14/visual/link_1.dae" />
                 </geometry>
+                <material name="gray">
+                    <color rgba="0.7 0.7 0.7 0.2"/>
+                </material>
             </visual>
             <collision>
                 <origin rpy="0 0 0" xyz="0.0 0.0 -0.1475" />
@@ -107,6 +113,9 @@
                 <geometry>
                     <mesh filename="package://lbr_description/meshes/iiwa14/visual/link_2.dae" />
                 </geometry>
+                <material name="gray">
+                    <color rgba="0.7 0.7 0.7 0.2"/>
+                </material>
             </visual>
             <collision>
                 <origin rpy="0 0 0" xyz="0.0 0.01 -0.36" />
@@ -141,6 +150,9 @@
                 <geometry>
                     <mesh filename="package://lbr_description/meshes/iiwa14/visual/link_3.dae" />
                 </geometry>
+                <material name="gray">
+                    <color rgba="0.7 0.7 0.7 0.2"/>
+                </material>
             </visual>
             <collision>
                 <origin rpy="0 0 0" xyz="0.0 0.0 -0.588" />
@@ -175,6 +187,9 @@
                 <geometry>
                     <mesh filename="package://lbr_description/meshes/iiwa14/visual/link_4.dae" />
                 </geometry>
+                <material name="gray">
+                    <color rgba="0.7 0.7 0.7 0.2"/>
+                </material>
             </visual>
             <collision>
                 <origin rpy="0 0 0" xyz="0.0 -0.0105 -0.78" />
@@ -209,6 +224,9 @@
                 <geometry>
                     <mesh filename="package://lbr_description/meshes/iiwa14/visual/link_5.dae" />
                 </geometry>
+                <material name="gray">
+                    <color rgba="0.7 0.7 0.7 0.2"/>
+                </material>
             </visual>
             <collision>
                 <origin rpy="0 0 0" xyz="0.0 0.0 -0.9875" />
@@ -243,6 +261,9 @@
                 <geometry>
                     <mesh filename="package://lbr_description/meshes/iiwa14/visual/link_6.dae" />
                 </geometry>
+                <material name="gray">
+                    <color rgba="0.7 0.7 0.7 0.2"/>
+                </material>
             </visual>
             <collision>
                 <origin rpy="0 0 0" xyz="0.0 0.0707 -1.18" />
@@ -276,6 +297,9 @@
                 <geometry>
                     <mesh filename="package://lbr_description/meshes/iiwa14/visual/link_7.dae" />
                 </geometry>
+                <material name="gray">
+                    <color rgba="0.7 0.7 0.7 0.2"/>
+                </material>
             </visual>
             <collision>
                 <origin rpy="0 0 0" xyz="0.0 0.0 -1.271" />
@@ -381,6 +405,9 @@
             <geometry>
                 <mesh filename="package://lbr_description/meshes/envs/visual/base.dae"/>
             </geometry>
+            <material name="gray">
+                <color rgba="0.7 0.7 0.7 0.2"/>
+            </material>
         </visual>
         <collision>
             <origin xyz="0 0 0.06" rpy="0 0 0"/>
@@ -409,6 +436,9 @@
             <geometry>
                 <mesh filename="package://lbr_description/meshes/envs/visual/mount.dae"/>
             </geometry>
+            <material name="gray">
+                <color rgba="0.7 0.7 0.7 0.2"/>
+            </material>
         </visual>
         <collision>
             <origin xyz="0 0 0.565" rpy="0 0 0"/>
@@ -438,6 +468,9 @@
             <geometry>
                 <mesh filename="package://lbr_description/meshes/envs/visual/conveyor.dae"/>
             </geometry>
+            <material name="gray">
+                <color rgba="0.7 0.7 0.7 0.2"/>
+            </material>
         </visual>
         <collision>
             <origin xyz="0 0 0.455" rpy="0 0 0"/>
@@ -490,7 +523,7 @@
     <joint name="frame_joint" type="fixed">
         <parent link="$(arg robot_name)_floating_link"/>
         <child link = "frame"/>
-        <origin xyz="-0.2 0.8 0.9" rpy="0 0 0"/>
+        <origin xyz="-0.2 0.8 0.84" rpy="0 0 0"/>
     </joint>
 
     <link name="frame">
@@ -504,9 +537,9 @@
             </material>
         </visual>  
         <collision>
-            <origin xyz="0 0 -0.5" rpy="0 0 0"/>
+            <origin xyz="0 0 -0.4" rpy="0 0 0"/>
             <geometry>
-                <box size="1.0 1.0 0.8"/>
+                <box size="1.0 1.0 0.7"/>
             </geometry>
         </collision>
         <inertial>
@@ -520,9 +553,9 @@
     </link>
 
     <joint name="iiwa2_joint" type="fixed">
-        <parent link="frame"/>
+        <parent link="$(arg robot_name)_floating_link"/>
         <child link = "iiwa2"/>
-        <origin xyz="0.30 0.34 0" rpy="1.57 0 0"/>
+        <origin xyz="0 0 0.94" rpy="1.57 0 0"/>
     </joint>
 
     <link name="iiwa2">
@@ -563,7 +596,7 @@
             <geometry>
                 <mesh filename="package://lbr_description/meshes/envs/visual/softjig.stl"/>
             </geometry>
-            <material name="gray_dark">
+            <material name="dark_gray">
                 <color rgba="0.7 0.7 0.7 1.0"/>
             </material>
         </visual>  
@@ -586,7 +619,7 @@
     <joint name="round_table_joint" type="fixed">
         <parent link="$(arg robot_name)_floating_link"/>
         <child link = "round_table"/>
-        <origin xyz="0 -0.7 0.485" rpy="0 0 0"/>
+        <origin xyz="0 -0.7 0.55" rpy="0 0 0"/>
     </joint>
 
     <link name="round_table">

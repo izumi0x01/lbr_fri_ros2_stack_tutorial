@@ -15,11 +15,32 @@
     <!-- KDL requires a link without inertia -->
     <link name="$(arg robot_name)_floating_link" />
 
-    <!--joint
-        between <robot_name>_floating_link and robot_name_link_0-->
-    <joint name="$(arg robot_name)_floating_joint" type="fixed">
-        <origin xyz="0 0 0.978" rpy="0 0 3.14"/>
-        <parent link="$(arg robot_name)_floating_link" />
+    <link name="workspace_mount">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.3 0.3 0.03"/>
+            </geometry>
+            <material name="gray">
+                <color rgba="0.7 0.7 0.7 0.2"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.3 0.3 0.03"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="workspace_arm_joint" type="fixed">
+        <origin xyz="0.1 1.14 0.85" rpy="0 0 3.14"/>
+        <parent link="$(arg robot_name)_floating_link"/>
+        <child link="workspace_mount"/>
+    </joint>
+
+    <joint name="$(arg robot_name)_joint" type="fixed">
+        <origin xyz="0 0 0.016" rpy="0 0 0"/>
+        <parent link="workspace_mount" />
         <child link="$(arg robot_name)_link_0" />
     </joint>
 
