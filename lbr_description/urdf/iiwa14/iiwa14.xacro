@@ -32,14 +32,15 @@
             </geometry>
         </collision>
     </link>
-    <joint name="workspace_arm_joint" type="fixed">
+
+    <joint name="workspace_mount_joint" type="fixed">
         <origin xyz="0.1 1.14 0.85" rpy="0 0 3.14"/>
         <parent link="$(arg robot_name)_floating_link"/>
         <child link="workspace_mount"/>
     </joint>
 
     <joint name="$(arg robot_name)_joint" type="fixed">
-        <origin xyz="0 0 0.016" rpy="0 0 0"/>
+        <origin xyz="0 0 0.016" rpy="0 0 0.785398"/>
         <parent link="workspace_mount" />
         <child link="$(arg robot_name)_link_0" />
     </joint>
