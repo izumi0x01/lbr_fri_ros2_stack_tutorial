@@ -394,69 +394,6 @@
     <!--  The TCP frame is here defined -->
     <link name="tool_link_ee"/>
 
-    <joint name="base_joint" type="fixed">
-        <parent link="$(arg robot_name)_floating_link"/>
-        <child link="base"/>
-    </joint>
-
-    <link name="base">
-        <visual>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
-            <geometry>
-                <mesh filename="package://lbr_description/meshes/envs/visual/base.dae"/>
-            </geometry>
-            <material name="gray">
-                <color rgba="0.7 0.7 0.7 0.2"/>
-            </material>
-        </visual>
-        <collision>
-            <origin xyz="0 0 0.06" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.4 0.4 0.10"/>
-            </geometry>
-        </collision>
-        <inertial>
-            <origin xyz="0 0 1" rpy="0 0 0"/>
-            <mass value="1"/>
-            <inertia
-                ixx="1.0" ixy="0.0" ixz="0.0"
-                iyy="1.0" iyz="0.0"
-                izz="1.0"/>
-        </inertial>
-    </link>
-
-    <joint name="mount_joint" type="fixed">
-        <parent link="base"/>
-        <child link="mount"/>
-        <origin xyz="0 0 0" rpy="0 0 -1.57"/>
-    </joint>
-
-    <link name="mount">
-        <visual>
-            <origin xyz="0 0 0.145" rpy="0 0 0"/>
-            <geometry>
-                <mesh filename="package://lbr_description/meshes/envs/visual/mount.stl"/>
-            </geometry>
-            <material name="gray">
-                <color rgba="0.7 0.7 0.7 0.2"/>
-            </material>
-        </visual>
-        <collision>
-            <origin xyz="0 0 0.565" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.25 0.25 0.82"/>
-            </geometry>
-        </collision>
-        <inertial>
-            <origin xyz="0 0 1" rpy="0 0 0"/>
-            <mass value="1"/>
-            <inertia
-                ixx="1.0" ixy="0.0" ixz="0.0"
-                iyy="1.0" iyz="0.0"
-                izz="1.0"/>
-        </inertial>
-    </link>
-
     <joint name="conveyor_joint" type="fixed">
         <parent link="$(arg robot_name)_floating_link"/>
         <child link = "conveyor"/>
@@ -492,7 +429,7 @@
     <joint name="tv_joint" type="fixed">
         <parent link="$(arg robot_name)_floating_link"/>
         <child link = "tv"/>
-        <origin xyz="0.6 -0.9 1.9" rpy="-0.1745 0 0.78"/>
+        <origin xyz="0.6 -0.5 1.9" rpy="-0.1745 0 0.78"/>
     </joint>
 
     <link name="tv">
@@ -553,10 +490,34 @@
         </inertial>
     </link>
 
-    <joint name="iiwa2_joint" type="fixed">
+    <link name="workspace_mount2">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.3 0.3 0.03"/>
+            </geometry>
+            <material name="gray">
+                <color rgba="0.7 0.7 0.7 0.2"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.3 0.3 0.03"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="workspace_mount2_joint" type="fixed">
+        <origin xyz="-0.5 0.5 0.85" rpy="0 0 3.14"/>
         <parent link="$(arg robot_name)_floating_link"/>
+        <child link="workspace_mount2"/>
+    </joint>
+
+    <joint name="iiwa2_joint" type="fixed">
+        <parent link="workspace_mount2"/>
         <child link = "iiwa2"/>
-        <origin xyz="-0.005 -0.0045 0.94" rpy="1.57 0 0"/>
+        <origin xyz="0 0 0" rpy="1.57 0 0"/>
     </joint>
 
     <link name="iiwa2">
@@ -588,7 +549,7 @@
     <joint name="softjig_joint" type="fixed">
         <parent link="frame"/>
         <child link = "softjig"/>
-        <origin xyz="0.45 0 0" rpy="1.57 0 3.14"/>
+        <origin xyz="0.45 0.5 0" rpy="1.57 0 3.14"/>
     </joint>
 
     <link name="softjig">
@@ -620,7 +581,7 @@
     <joint name="round_table_joint" type="fixed">
         <parent link="$(arg robot_name)_floating_link"/>
         <child link = "round_table"/>
-        <origin xyz="0 -0.7 0.55" rpy="0 0 0"/>
+        <origin xyz="0 -0.3 0.55" rpy="0 0 0"/>
     </joint>
 
     <link name="round_table">

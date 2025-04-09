@@ -15,7 +15,7 @@
     <!-- KDL requires a link without inertia -->
     <link name="$(arg robot_name)_floating_link" />
 
-    <link name="workspace_mount">
+    <link name="workspace_mount1">
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
@@ -33,15 +33,15 @@
         </collision>
     </link>
 
-    <joint name="workspace_mount_joint" type="fixed">
-        <origin xyz="0.1 1.14 0.85" rpy="0 0 3.14"/>
+    <joint name="workspace_mount1_joint" type="fixed">
+        <origin xyz="0.1 0.5 0.85" rpy="0 0 3.14"/>
         <parent link="$(arg robot_name)_floating_link"/>
-        <child link="workspace_mount"/>
+        <child link="workspace_mount1"/>
     </joint>
 
     <joint name="$(arg robot_name)_joint" type="fixed">
         <origin xyz="0 0 0.016" rpy="0 0 0.785398"/>
-        <parent link="workspace_mount" />
+        <parent link="workspace_mount1" />
         <child link="$(arg robot_name)_link_0" />
     </joint>
 
