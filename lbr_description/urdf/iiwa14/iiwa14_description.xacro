@@ -517,7 +517,7 @@
     <joint name="iiwa2_joint" type="fixed">
         <parent link="workspace_mount2"/>
         <child link = "iiwa2"/>
-        <origin xyz="0 0 0" rpy="1.57 0 0"/>
+        <origin xyz="0 0 0" rpy="1.57 0 -2.37"/>
     </joint>
 
     <link name="iiwa2">
