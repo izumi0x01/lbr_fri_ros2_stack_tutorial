@@ -4,7 +4,6 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
-        - /MotionPlanning1
         - /MotionPlanning1/Scene Robot1
       Splitter Ratio: 0.5
     Tree Height: 585
@@ -67,11 +66,6 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
-          base:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
           conveyor:
             Alpha: 1
             Show Axes: false
@@ -150,11 +144,6 @@ Visualization Manager:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-          mount:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
           round_table:
             Alpha: 1
             Show Axes: false
@@ -179,7 +168,12 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          workspace_mount:
+          workspace_mount1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          workspace_mount2:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -230,11 +224,6 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
-          base:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
           conveyor:
             Alpha: 1
             Show Axes: false
@@ -313,11 +302,6 @@ Visualization Manager:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-          mount:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
           round_table:
             Alpha: 1
             Show Axes: false
@@ -342,7 +326,12 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          workspace_mount:
+          workspace_mount1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          workspace_mount2:
             Alpha: 1
             Show Axes: false
             Show Trail: false

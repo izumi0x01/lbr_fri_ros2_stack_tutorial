@@ -3,10 +3,7 @@ Panels:
     Help Height: 87
     Name: Displays
     Property Tree Widget:
-      Expanded:
-        - /Global Options1
-        - /Status1
-        - /RobotModel1
+      Expanded: ~
       Splitter Ratio: 0.40760868787765503
     Tree Height: 705
   - Class: rviz_common/Selection
@@ -66,11 +63,6 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        base:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         conveyor:
           Alpha: 1
           Show Axes: false
@@ -149,11 +141,6 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        mount:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         round_table:
           Alpha: 1
           Show Axes: false
@@ -178,7 +165,12 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        workspace_mount:
+        workspace_mount1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        workspace_mount2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
