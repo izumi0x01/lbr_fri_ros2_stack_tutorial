@@ -16,11 +16,11 @@ int main(int argc, char **argv) {
                                                                         robot_name));
 
   // Set a target pose
-  geometry_msgs::msg::Pose target_pose;
+  geometry_msgs::msg::Pose target_pose;  // Note that this is in the world coordinate system
   target_pose.orientation.w = 1.0;
-  target_pose.position.x = -0.4;
+  target_pose.position.x = 0.0;
   target_pose.position.y = 0.0;
-  target_pose.position.z = 0.9;
+  target_pose.position.z = 1.0;  
   move_group_interface.setPoseTarget(target_pose);
 
   // Create a plan to that target pose

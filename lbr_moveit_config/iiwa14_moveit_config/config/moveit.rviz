@@ -6,7 +6,7 @@ Panels:
       Expanded:
         - /MotionPlanning1/Scene Robot1
       Splitter Ratio: 0.5
-    Tree Height: 585
+    Tree Height: 385
   - Class: rviz_common/Help
     Name: Help
   - Class: rviz_common/Views
@@ -341,6 +341,98 @@ Visualization Manager:
         Show Robot Visual: true
       Value: true
       Velocity_Scaling_Factor: 0.1
+    - Class: rviz_default_plugins/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: true
+        conveyor:
+          Value: true
+        eef:
+          Value: true
+        eef_base:
+          Value: true
+        frame:
+          Value: true
+        heater_unit:
+          Value: true
+        iiwa2:
+          Value: true
+        lbr_floating_link:
+          Value: true
+        lbr_link_0:
+          Value: true
+        lbr_link_1:
+          Value: true
+        lbr_link_2:
+          Value: true
+        lbr_link_3:
+          Value: true
+        lbr_link_4:
+          Value: true
+        lbr_link_5:
+          Value: true
+        lbr_link_6:
+          Value: true
+        lbr_link_7:
+          Value: true
+        lbr_link_ee:
+          Value: true
+        round_table:
+          Value: true
+        softjig:
+          Value: true
+        tool_link_ee:
+          Value: true
+        tool_mount:
+          Value: true
+        tv:
+          Value: true
+        workspace_mount1:
+          Value: true
+        workspace_mount2:
+          Value: true
+        world:
+          Value: true
+      Marker Scale: 1
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: false
+      Tree:
+        world:
+          lbr_floating_link:
+            conveyor:
+              heater_unit:
+                {}
+            frame:
+              softjig:
+                {}
+            round_table:
+              {}
+            tv:
+              {}
+            workspace_mount1:
+              lbr_link_0:
+                lbr_link_1:
+                  lbr_link_2:
+                    lbr_link_3:
+                      lbr_link_4:
+                        lbr_link_5:
+                          lbr_link_6:
+                            lbr_link_7:
+                              lbr_link_ee:
+                                tool_link_ee:
+                                  {}
+                                tool_mount:
+                                  eef_base:
+                                    eef:
+                                      {}
+            workspace_mount2:
+              iiwa2:
+                {}
+      Update Interval: 0
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 21; 21; 26
@@ -382,7 +474,7 @@ Visualization Manager:
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 1376
+  Height: 1016
   Help:
     collapsed: false
   Hide Left Dock: false
@@ -391,9 +483,9 @@ Window Geometry:
     collapsed: false
   MotionPlanning - Trajectory Slider:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000100000000000002b40000050afc0200000005fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000003f00fffffffb000000100044006900730070006c006100790073010000003b000002ca000000c700fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e0067010000030b0000023a0000016900fffffffb0000000800480065006c0070000000029a0000006e0000006e00fffffffb0000000a005600690065007700730000000339000000bd000000a000ffffff000003db0000050a00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000100000000000002b4000003a2fc0200000005fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000003f00fffffffb000000100044006900730070006c006100790073010000003b00000202000000c700fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e006701000002430000019a0000016900fffffffb0000000800480065006c0070000000029a0000006e0000006e00fffffffb0000000a005600690065007700730000000339000000bd000000a000ffffff00000480000003a200000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Views:
     collapsed: false
-  Width: 1685
-  X: 1755
+  Width: 1850
+  X: 70
   Y: 27
