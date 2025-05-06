@@ -19,7 +19,7 @@ setup(
     tests_require=["pytest"],
     entry_points={
         "console_scripts": [
-            "move_robot = lbr_moveit_py.move_robot:main",
+            "hello_moveit = lbr_moveit_py.hello_moveit:main",
         ],
     },
 )

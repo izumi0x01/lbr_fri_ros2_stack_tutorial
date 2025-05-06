@@ -76,17 +76,16 @@ class MoveGroupActionClientNode(Node):
 
 def main(args: List = None) -> None:
     rclpy.init(args=args)
-    move_group_action_client_node = MoveGroupActionClientNode(
-        "move_group_action_client_node"
-    )
+    node = MoveGroupActionClientNode("hello_moveit")
 
+    # Note that this is in the robot coordinate system
     pose = Pose(
         position=Point(x=0.0, y=0.0, z=1.0),
         orientation=Quaternion(x=0.0, y=0.0, z=0.0, w=1.0),
     )
-    future = move_group_action_client_node.send_goal_async(pose)
+    future = node.send_goal_async(pose)
     rclpy.spin_until_future_complete(
-        move_group_action_client_node, future
+        node, future
     )  # gets stuck for invalid goals
 
     rclpy.shutdown()
