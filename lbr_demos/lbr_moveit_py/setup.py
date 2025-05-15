@@ -21,7 +21,8 @@ setup(
     tests_require=["pytest"],
     entry_points={
         "console_scripts": [
-            "hello_moveit = lbr_moveit_py.hello_moveit:main",
+            "hello_moveit_action = lbr_moveit_py.hello_moveit_action:main",
+            "hello_moveit_commander = lbr_moveit_py.hello_moveit_commander:main",
         ],
     },
 )

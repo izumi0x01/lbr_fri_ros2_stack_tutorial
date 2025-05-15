@@ -27,7 +27,7 @@ def hidden_setup(context: LaunchContext) -> List[LaunchDescriptionEntity]:
     ld.add_action(
         Node(
             package="lbr_moveit_py",
-            executable="hello_moveit",
+            executable="hello_moveit_action",
             parameters=[
                 moveit_configs.to_dict(),
                 {"use_sim_time": use_sim_time},

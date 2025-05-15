@@ -6,7 +6,7 @@ int main(int argc, char **argv) {
   rclcpp::init(argc, argv);
 
   // Configure node
-  auto node_ptr = rclcpp::Node::make_shared("hello_moveit");
+  auto node_ptr = rclcpp::Node::make_shared("hello_moveit_action");
   node_ptr->declare_parameter("robot_name", "lbr");
   auto robot_name = node_ptr->get_parameter("robot_name").as_string();
 

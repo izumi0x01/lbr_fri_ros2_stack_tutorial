@@ -76,7 +76,7 @@ class MoveGroupActionClientNode(Node):
 
 def main(args: List = None) -> None:
     rclpy.init(args=args)
-    node = MoveGroupActionClientNode("hello_moveit")
+    node = MoveGroupActionClientNode("hello_moveit_action")
 
     # Note that this is in the robot coordinate system
     pose = Pose(

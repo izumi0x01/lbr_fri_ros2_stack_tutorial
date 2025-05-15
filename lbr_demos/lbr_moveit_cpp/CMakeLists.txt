@@ -15,9 +15,9 @@ find_package(geometry_msgs REQUIRED)
 find_package(moveit_ros_planning_interface REQUIRED)
 find_package(rclcpp REQUIRED)
 
-add_executable(hello_moveit src/hello_moveit.cpp)
+add_executable(hello_moveit_action src/hello_moveit_action.cpp)
 
-ament_target_dependencies(hello_moveit
+ament_target_dependencies(hello_moveit_action
   geometry_msgs  
   moveit_ros_planning_interface
   rclcpp
@@ -27,7 +27,7 @@ install(DIRECTORY launch
   DESTINATION share/${PROJECT_NAME}
 )
 
-install(TARGETS hello_moveit
+install(TARGETS hello_moveit_action
   DESTINATION lib/${PROJECT_NAME}
 )
 

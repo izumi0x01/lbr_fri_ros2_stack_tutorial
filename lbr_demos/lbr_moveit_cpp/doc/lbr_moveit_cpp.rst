@@ -29,11 +29,11 @@ Simulation
             mode:=mock \
             model:=iiwa7 # [iiwa7, iiwa14, med7, med14]
 
-#. Run the `hello_moveit <https://github.com/lbr-stack/lbr_fri_ros2_stack/blob/humble/lbr_demos/lbr_moveit_cpp/src/hello_moveit.cpp>`_:octicon:`link-external` node:
+#. Run the `hello_moveit <https://github.com/lbr-stack/lbr_fri_ros2_stack/blob/humble/lbr_demos/lbr_moveit_cpp/src/hello_moveit_action.cpp>`_:octicon:`link-external` node:
 
     .. code-block:: bash
 
-        ros2 launch lbr_moveit_cpp hello_moveit.launch.py \
+        ros2 launch lbr_moveit_cpp hello_moveit_action.launch.py \
             mode:=mock \
             model:=iiwa7 # [iiwa7, iiwa14, med7, med14]
 
