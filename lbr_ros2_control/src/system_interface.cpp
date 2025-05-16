@@ -294,7 +294,7 @@ hardware_interface::return_type SystemInterface::read(const rclcpp::Time & /*tim
                               static_cast<KUKA::FRI::ESessionState>(hw_lbr_state_.session_state))) {
     RCLCPP_ERROR_STREAM(rclcpp::get_logger(LOGGER_NAME),
                         lbr_fri_ros2::ColorScheme::ERROR
-                            << "LBR left COMMANDING_ACTIVE. Please re-run lbr_bringup"
+                            << "LBR COMMANDING_ACTIVE. Please re-run lbr_bringup"
                             << lbr_fri_ros2::ColorScheme::ENDC);
     app_ptr_->request_stop();
     app_ptr_->close_udp_socket();
