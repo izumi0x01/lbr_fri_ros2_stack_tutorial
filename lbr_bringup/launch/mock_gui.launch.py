@@ -1,5 +1,7 @@
 from launch import LaunchDescription
 from launch_ros.actions import Node
+from launch.actions import RegisterEventHandler
+from launch.event_handlers import OnProcessStart
 from launch.substitutions import LaunchConfiguration, PythonExpression
 from lbr_bringup.description import LBRDescriptionMixin
 from lbr_bringup.ros2_control import LBRROS2ControlMixin
@@ -11,6 +13,9 @@ def generate_launch_description() -> LaunchDescription:
     # launch arguments
     ld.add_action(LBRDescriptionMixin.arg_model())
     ld.add_action(LBRDescriptionMixin.arg_robot_name())
+    ld.add_action(LBRROS2ControlMixin.arg_ctrl_cfg_pkg())   
+    ld.add_action(LBRROS2ControlMixin.arg_ctrl_cfg())
+    ld.add_action(LBRROS2ControlMixin.arg_ctrl())
 
     # static transform world -> <robot_name>_floating_link
     ld.add_action(
@@ -33,6 +38,7 @@ def generate_launch_description() -> LaunchDescription:
         name="robot_state_publisher",
         output="screen",
         parameters=[robot_description, {"use_sim_time": False}],
+        namespace="lbr",
         remappings=[
             ("/joint_states", "/lbr/joint_states")
         ]
@@ -45,6 +51,7 @@ def generate_launch_description() -> LaunchDescription:
         executable="joint_state_publisher_gui",
         name="joint_state_publisher_gui",
         output="screen",
+        namespace="lbr",
         remappings=[
             ("/joint_states", "/lbr/joint_states")
         ]
